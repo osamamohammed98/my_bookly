@@ -1,4 +1,5 @@
 import 'package:animated_conditional_builder/animated_conditional_builder.dart';
+import 'package:bloc_basic/modules/webview/webview_view.dart';
 import 'package:bloc_basic/shared/cubit/cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -201,57 +202,62 @@ Widget myDivider() => Padding(
 Widget buildArticleItem(article, BuildContext context) {
   try {
     print(article);
-    return Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          children: [
-            Container(
-              width: 120.0,
-              height: 120.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  10.0,
-                ),
-                image: DecorationImage(
-                  image: NetworkImage('${article['urlToImage'] ?? "https://www.elaosboa.com/wp-content/uploads/2022/09/elaosboa86021.png"}'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 20.0,
-            ),
-            Expanded(
-              child: SizedBox(
+    return InkWell(
+      onTap: (){
+        navigateTo(context, WebViewScreen(article['url']),);
+      },
+      child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            children: [
+              Container(
+                width: 120.0,
                 height: 120.0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        '${article['title'] ??""}',
-                        style: Theme.of(context).textTheme.bodyText1,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    Text(
-                      '${article['publishedAt'] ??""}',
-                      style: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    10.0,
+                  ),
+                  image: DecorationImage(
+                    image: NetworkImage('${article['urlToImage'] ?? "https://www.elaosboa.com/wp-content/uploads/2022/09/elaosboa86021.png"}'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              width: 15.0,
-            ),
-          ],
+              const SizedBox(
+                width: 20.0,
+              ),
+              Expanded(
+                child: SizedBox(
+                  height: 120.0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '${article['title'] ??""}',
+                          style: Theme.of(context).textTheme.bodyText1,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Text(
+                        '${article['publishedAt'] ??""}',
+                        style: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 15.0,
+              ),
+            ],
+          ),
         ),
-      );
+    );
   } on Exception catch (e) {
     // TODO
     print(e);
@@ -259,7 +265,7 @@ Widget buildArticleItem(article, BuildContext context) {
   }
 }
 
-Widget articleBuilder(list ,contexts) => AnimatedConditionalBuilder(
+Widget articleBuilder(list ,contexts , {isSearch = false}) => AnimatedConditionalBuilder(
       condition: list.length > 0,
       builder: (context) => ListView.separated(
         physics: const BouncingScrollPhysics(),
@@ -268,7 +274,7 @@ Widget articleBuilder(list ,contexts) => AnimatedConditionalBuilder(
         separatorBuilder: (context, index) => myDivider(),
         itemCount: list.length,
       ),
-      fallback: (context) => const Center(child: CupertinoActivityIndicator()),
+      fallback: (context) => isSearch ? const SizedBox.shrink():const Center(child: CupertinoActivityIndicator()),
     );
 
 
