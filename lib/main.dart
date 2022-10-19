@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_basic/layout/news/cubit/cubit.dart';
 import 'package:bloc_basic/layout/news/news_home_app.dart';
 import 'package:bloc_basic/layout/todo_app/home_layout.dart';
 import 'package:bloc_basic/modules/counter/counter_view.dart';
@@ -35,91 +36,116 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => AppCubit()..changeTheme(fromShared: isDark),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => NewsCubit()
+            ..getBusinessData()
+            ..getScience()
+            ..getSports(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) =>
+              AppCubit()..changeTheme(fromShared: isDark),
+        ),
+      ],
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              primarySwatch: Colors.deepOrange,
-              scaffoldBackgroundColor: Colors.white,
-              appBarTheme: const AppBarTheme(
-                titleSpacing: 20.0,
-                backwardsCompatibility: false,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Colors.white,
-                  statusBarIconBrightness: Brightness.dark,
+                primarySwatch: Colors.deepOrange,
+                scaffoldBackgroundColor: Colors.white,
+                appBarTheme: const AppBarTheme(
+                  titleSpacing: 20.0,
+                  backwardsCompatibility: false,
+                  systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: Colors.white,
+                    statusBarIconBrightness: Brightness.dark,
+                  ),
+                  backgroundColor: Colors.white,
+                  elevation: 0.0,
+                  titleTextStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  iconTheme: IconThemeData(
+                    color: Colors.black,
+                  ),
                 ),
-                backgroundColor: Colors.white,
-                elevation: 0.0,
-                titleTextStyle: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+                floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                  backgroundColor: Colors.deepOrange,
                 ),
-                iconTheme: IconThemeData(
-                  color: Colors.black,
+                bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                  type: BottomNavigationBarType.fixed,
+                  selectedItemColor: Colors.deepOrange,
+                  unselectedItemColor: Colors.grey,
+                  elevation: 20.0,
+                  backgroundColor: Colors.white,
                 ),
-              ),
-              floatingActionButtonTheme: const FloatingActionButtonThemeData(
-                backgroundColor: Colors.deepOrange,
-              ),
-              bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-                type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.deepOrange,
-                unselectedItemColor: Colors.grey,
-                elevation: 20.0,
-                backgroundColor: Colors.white,
-              ),
-              textTheme: const TextTheme(
-                bodyText1: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                textTheme: const TextTheme(
+                  bodyText1: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-            ),
+                inputDecorationTheme: const InputDecorationTheme(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  labelStyle: TextStyle(color: Colors.grey),
+                  suffixIconColor: Colors.grey,
+                  iconColor: Colors.grey,
+                )),
             darkTheme: ThemeData(
-              primarySwatch: Colors.deepOrange,
-              scaffoldBackgroundColor: fromHex("333739"),
-              appBarTheme: AppBarTheme(
-                titleSpacing: 20.0,
-                backwardsCompatibility: false,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: fromHex('333739'),
-                  statusBarIconBrightness: Brightness.light,
+                primarySwatch: Colors.deepOrange,
+                scaffoldBackgroundColor: fromHex("333739"),
+                appBarTheme: AppBarTheme(
+                  titleSpacing: 20.0,
+                  backwardsCompatibility: false,
+                  systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: fromHex('333739'),
+                    statusBarIconBrightness: Brightness.light,
+                  ),
+                  backgroundColor: fromHex('333739'),
+                  elevation: 0.0,
+                  titleTextStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  iconTheme: const IconThemeData(
+                    color: Colors.white,
+                  ),
                 ),
-                backgroundColor: fromHex('333739'),
-                elevation: 0.0,
-                titleTextStyle: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+                floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                  backgroundColor: Colors.deepOrange,
                 ),
-                iconTheme: const IconThemeData(
-                  color: Colors.white,
+                bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                  type: BottomNavigationBarType.fixed,
+                  selectedItemColor: Colors.deepOrange,
+                  unselectedItemColor: Colors.grey,
+                  elevation: 20.0,
+                  backgroundColor: fromHex('333739'),
                 ),
-              ),
-              floatingActionButtonTheme: const FloatingActionButtonThemeData(
-                backgroundColor: Colors.deepOrange,
-              ),
-              bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.deepOrange,
-                unselectedItemColor: Colors.grey,
-                elevation: 20.0,
-                backgroundColor: fromHex('333739'),
-              ),
-              textTheme: const TextTheme(
-                bodyText1: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
+                textTheme: const TextTheme(
+                  bodyText1: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ),
+                inputDecorationTheme: const InputDecorationTheme(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  labelStyle: TextStyle(color: Colors.grey),
+                  suffixIconColor: Colors.grey,
+                  iconColor: Colors.grey,
+                )),
             themeMode: AppCubit.instance(context).isDark
                 ? ThemeMode.dark
                 : ThemeMode.light,
