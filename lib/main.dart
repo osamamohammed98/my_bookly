@@ -1,8 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:bloc_basic/layout/news/cubit/cubit.dart';
-import 'package:bloc_basic/layout/news/news_home_app.dart';
-import 'package:bloc_basic/layout/todo_app/home_layout.dart';
-import 'package:bloc_basic/modules/counter/counter_view.dart';
+
 import 'package:bloc_basic/shared/cubit/cubit.dart';
 import 'package:bloc_basic/shared/cubit/state.dart';
 import 'package:bloc_basic/shared/network/local/cache_helper.dart';
@@ -38,12 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (BuildContext context) => NewsCubit()
-            ..getBusinessData()
-            ..getScience()
-            ..getSports(),
-        ),
         BlocProvider(
           create: (BuildContext context) =>
               AppCubit()..changeTheme(fromShared: isDark),
