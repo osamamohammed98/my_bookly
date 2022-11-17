@@ -1,5 +1,7 @@
 
 import 'package:bloc_basic/firebase_options.dart';
+import 'package:bloc_basic/layout/cubit/social_cubit.dart';
+import 'package:bloc_basic/layout/social_layout.dart';
 import 'package:bloc_basic/modules/social_login/social_login_screen.dart';
 import 'package:bloc_basic/shared/cubit/cubit.dart';
 import 'package:bloc_basic/shared/cubit/state.dart';
@@ -49,6 +51,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (BuildContext context) => AppCubit()..changeTheme(fromShared: isDark),
         ),
+        BlocProvider(
+          create: (BuildContext context) => SocialCubit()..getUserData(),
+        ),
       ],
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {},
@@ -60,7 +65,7 @@ class MyApp extends StatelessWidget {
             themeMode: AppCubit.instance(context).isDark
                 ? ThemeMode.dark
                 : ThemeMode.light,
-            home:  SocialLoginScreen()/*isOnBoarding ? isLogin ? const ShopLayoutView():ShopLoginScreen():const OnBoardingView ()*/,
+            home:  CacheHelper.getUserId() != null ? SocialLayout():SocialLoginScreen()/*isOnBoarding ? isLogin ? const ShopLayoutView():ShopLoginScreen():const OnBoardingView ()*/,
           );
         },
       ),

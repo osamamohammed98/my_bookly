@@ -58,16 +58,27 @@ Widget defaultFormField({
       validator: (v) => validate(v.toString()),
       decoration: InputDecoration(
         labelText: label,
-        prefixIcon: Icon(
-          prefix,
-        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 24 ,vertical: 30),
+
+        // prefixIcon: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Icon(
+        //     prefix,
+        //   ),
+        // ),
         suffixIcon: suffix != null
-            ? IconButton(
+            ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
           onPressed: suffixPressed,
-          icon: Icon(
-            suffix,
+          icon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+                suffix,
+            ),
           ),
-        )
+        ),
+            )
             : null,
         border: const OutlineInputBorder(),
       ),

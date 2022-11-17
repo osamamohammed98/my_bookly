@@ -23,54 +23,15 @@ class SocialLayout extends StatelessWidget {
             ),
           ),
           body: AnimatedConditionalBuilder(
-            condition: SocialCubit.get(context).model != null,
+            condition:  (SocialCubit.get(context).model != null )/* != null*/,
             builder: (context) {
-              var model = FirebaseAuth.instance.currentUser?.emailVerified;
-              if (kDebugMode) {
-                print(model);
-              }
+              // var model = !(SocialCubit.get(context).model?.isEmailVerified ?? false );
+              // if (kDebugMode) {
+              //   print("test_ $model");
+              // }
 
               return Column(
                 children: [
-                  if (!model!)
-                    Container(
-                      color: Colors.amber.withOpacity(.6),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.info_outline,
-                            ),
-                            const SizedBox(
-                              width: 15.0,
-                            ),
-                            const Expanded(
-                              child: Text(
-                                'please verify your email',
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 15.0,
-                            ),
-                            defaultTextButton(
-                              onPress: () {
-                                FirebaseAuth.instance.currentUser
-                                    ?.sendEmailVerification()
-                                    .then((value) {
-                                  successToast(
-                                    'check your mail',
-                                  );
-                                }).catchError((error) {});
-                              },
-                              txt: 'send',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                 ],
               );
             },
