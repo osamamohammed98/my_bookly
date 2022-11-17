@@ -1,3 +1,4 @@
+import 'package:bloc_basic/shared/components/cut_corner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -41,17 +42,35 @@ ThemeData darkTheme = ThemeData(
         color: Colors.white,
       ),
     ),
-    inputDecorationTheme: const InputDecorationTheme(
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey),
+    inputDecorationTheme: InputDecorationTheme(
+      enabledBorder: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide: const BorderSide(color: Colors.grey),
       ),
-      labelStyle: TextStyle(color: Colors.grey),
+      focusedBorder: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide: const BorderSide(color: defaultColor),
+      ),
+      errorBorder: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide:  BorderSide(color: Colors.red),
+      ),
+      border: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide: const BorderSide(color: Colors.grey),
+      ),
+      labelStyle: const TextStyle(color: Colors.grey),
       suffixIconColor: Colors.grey,
       iconColor: Colors.grey,
     ));
-
-
-
 
 ThemeData lightTheme = ThemeData(
     primarySwatch: defaultColor,
@@ -91,11 +110,32 @@ ThemeData lightTheme = ThemeData(
         color: Colors.black,
       ),
     ),
-    inputDecorationTheme: const InputDecorationTheme(
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.grey),
+    inputDecorationTheme: InputDecorationTheme(
+      enabledBorder: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide: const BorderSide(color: Colors.grey),
       ),
-      labelStyle: TextStyle(color: Colors.grey),
+      focusedBorder: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide: const BorderSide(color: defaultColor),
+      ),
+      errorBorder: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide:  BorderSide(color: Colors.red),
+      ),
+      border: CutCornersBorder(
+        cut: 16,
+        gapPadding: 16,
+        borderRadius: BorderRadius.circular(12.0),
+        borderSide: const BorderSide(color: Colors.grey),
+      ),
+      labelStyle: const TextStyle(color: Colors.grey),
       suffixIconColor: Colors.grey,
       iconColor: Colors.grey,
     ));

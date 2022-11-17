@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
@@ -44,7 +45,7 @@ class CacheHelper {
   }
 
   static String getUserId() {
-    return sharedPreferences.getString("userId") ?? "";
+    return sharedPreferences.getString("userId") ?? FirebaseAuth.instance.currentUser?.uid ??"";
   }
 
   // static Future<bool> putUserData({
