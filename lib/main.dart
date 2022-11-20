@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
             themeMode: AppCubit.instance(context).isDark
                 ? ThemeMode.dark
                 : ThemeMode.light,
-            home:  CacheHelper.getUserId() != null ? SocialLayout():SocialLoginScreen()/*isOnBoarding ? isLogin ? const ShopLayoutView():ShopLoginScreen():const OnBoardingView ()*/,
+            home:  CacheHelper.getUserId().isNotEmpty ? SocialLayout():SocialLoginScreen()/*isOnBoarding ? isLogin ? const ShopLayoutView():ShopLoginScreen():const OnBoardingView ()*/,
           );
         },
       ),

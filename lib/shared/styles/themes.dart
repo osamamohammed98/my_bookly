@@ -17,6 +17,7 @@ ThemeData darkTheme = ThemeData(
       backgroundColor: fromHex('333739'),
       elevation: 0.0,
       titleTextStyle: const TextStyle(
+        fontFamily: 'Jannah',
         color: Colors.white,
         fontSize: 20.0,
         fontWeight: FontWeight.bold,
@@ -59,7 +60,7 @@ ThemeData darkTheme = ThemeData(
         cut: 16,
         gapPadding: 16,
         borderRadius: BorderRadius.circular(12.0),
-        borderSide:  BorderSide(color: Colors.red),
+        borderSide:  const BorderSide(color: Colors.red),
       ),
       border: CutCornersBorder(
         cut: 16,
@@ -85,6 +86,7 @@ ThemeData lightTheme = ThemeData(
       backgroundColor: Colors.white,
       elevation: 0.0,
       titleTextStyle: TextStyle(
+        fontFamily: 'Jannah',
         color: Colors.black,
         fontSize: 20.0,
         fontWeight: FontWeight.bold,
@@ -127,7 +129,7 @@ ThemeData lightTheme = ThemeData(
         cut: 16,
         gapPadding: 16,
         borderRadius: BorderRadius.circular(12.0),
-        borderSide:  BorderSide(color: Colors.red),
+        borderSide:  const BorderSide(color: Colors.red),
       ),
       border: CutCornersBorder(
         cut: 16,
