@@ -1,5 +1,8 @@
 import 'package:bloc_basic/layout/cubit/social_cubit.dart';
 import 'package:bloc_basic/layout/cubit/social_state.dart';
+import 'package:bloc_basic/modules/edit_profile/edit_profile_screen.dart';
+import 'package:bloc_basic/modules/new_posts/new_post_screen.dart';
+import 'package:bloc_basic/shared/components/components.dart';
 import 'package:bloc_basic/shared/styles/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +18,7 @@ class SettingsScreen extends StatelessWidget
       listener: (context, state) {},
       builder: (context, state)
       {
-        var userModel = SocialCubit.get(context).model;
+        var userModel = SocialCubit.get(context).userModel;
 
         return Padding(
           padding: const EdgeInsets.all(8.0),
@@ -155,8 +158,13 @@ class SettingsScreen extends StatelessWidget
                 children: [
                   Expanded(
                     child: OutlinedButton(
-                      onPressed: () {},
-                      child: const Text(
+                      onPressed: () {
+                        navigateTo(
+                          context,
+                          const NewPostScreen(),
+                        );
+                      },
+                      child:const Text(
                         'Add Photos',
                       ),
                     ),
@@ -165,8 +173,10 @@ class SettingsScreen extends StatelessWidget
                     width: 10.0,
                   ),
                   OutlinedButton(
-                    onPressed: () {},
-                    child:const Icon(
+                    onPressed: () {
+                      navigateTo(context, EditProfileScreen(),);
+                    },
+                    child: const Icon(
                       IconBroken.Edit,
                       size: 16.0,
                     ),

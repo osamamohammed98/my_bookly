@@ -28,7 +28,7 @@ class SocialUserModel {
     image = json['image'] ??"";
     cover = json['cover']??"";
     bio = json['bio']??"";
-    isEmailVerified = json['isEmailVerified'];
+    isEmailVerified = json['isEmailVerified'] ?? false;
   }
 
   Map<String, dynamic> toMap()
