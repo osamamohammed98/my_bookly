@@ -1,4 +1,5 @@
 import 'package:bloc_basic/shared/styles/colors.dart';
+import 'package:bloc_basic/shared/styles/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -58,7 +59,7 @@ Widget defaultFormField({
       validator: (v) => validate(v.toString()),
       decoration: InputDecoration(
         labelText: label,
-        contentPadding: EdgeInsets.symmetric(horizontal: 24 ,vertical: 30),
+        contentPadding:const  EdgeInsets.symmetric(horizontal: 24 ,vertical: 30),
 
         // prefixIcon: Padding(
         //   padding: const EdgeInsets.all(8.0),
@@ -138,3 +139,23 @@ Widget myDivider() => Padding(
   ),
 );
 
+PreferredSizeWidget defaultAppBar({
+  required BuildContext context,
+  String? title,
+  List<Widget>? actions,
+}) => AppBar(
+  leading: IconButton(
+    onPressed: ()
+    {
+      Navigator.pop(context);
+    },
+    icon: const Icon(
+      IconBroken.Arrow___Left_2,
+    ),
+  ),
+  titleSpacing: 5.0,
+  title: Text(
+    title.toString(),
+  ),
+  actions: actions,
+);
