@@ -1,76 +1,238 @@
 
 import 'package:bloc_basic/firebase_options.dart';
-import 'package:bloc_basic/layout/cubit/social_cubit.dart';
-import 'package:bloc_basic/layout/social_layout.dart';
-import 'package:bloc_basic/modules/social_login/social_login_screen.dart';
-import 'package:bloc_basic/shared/cubit/cubit.dart';
-import 'package:bloc_basic/shared/cubit/state.dart';
-import 'package:bloc_basic/shared/network/local/cache_helper.dart';
-import 'package:bloc_basic/shared/network/remote/dio_helper.dart';
-import 'package:bloc_basic/shared/observer.dart';
-import 'package:bloc_basic/shared/styles/themes.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer = MyBlocObserver();
-  DioHelper.init();
-  await CacheHelper.init();
+  // Bloc.observer = MyBlocObserver();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  bool isDark = CacheHelper.getBoolean();
-  bool isOnBoarding = CacheHelper.getOnBoarding();
-  bool isLogin = CacheHelper.getOnLogin();
-  runApp(MyApp(isDark: isDark, isOnBoarding: isOnBoarding,isLogin:isLogin));
-
+  runApp(pointsCounter());
 }
 
-// Stateless
-// Stateful
+class pointsCounter extends StatefulWidget {
+  const pointsCounter({super.key});
 
-// class MyApp
+  @override
+  State<pointsCounter> createState() => _pointsCounterState();
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp( {super.key,required this.isDark, required this.isOnBoarding, required this.isLogin, });
+class _pointsCounterState extends State<pointsCounter> {
+  int teamAPoints = 0;
 
-  final bool isDark;
-  final bool isOnBoarding;
-  final  bool isLogin;
+  int teamBPoints = 0;
 
-  // constructor
-  // build
+  void addOnePoint() {
+    if (kDebugMode) {
+      print('add one point');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (BuildContext context) => AppCubit()..changeTheme(fromShared: isDark),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.orange,
+          title: const Text('Points Counter'),
         ),
-        BlocProvider(
-          create: (BuildContext context) => SocialCubit()..getUserData()..getPosts(),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                 SizedBox(
+                  height: 500,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const  Text(
+                        'Team E',
+                        style: TextStyle(
+                          fontSize: 32,
+                        ),
+                      ),
+                      Text(
+                        '$teamAPoints',
+                        style:const  TextStyle(
+                          fontSize: 150,
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(8),
+                          primary: Colors.orange,
+                          minimumSize:const  Size(150, 50),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            teamAPoints++;
+                          });
+                          if (kDebugMode) {
+                            print(teamAPoints);
+                          }
+                        },
+                        child: const Text(
+                          'Add 1 Point ',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.orange,
+                          minimumSize:const  Size(150, 50),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            teamAPoints += 2;
+                          });
+                        },
+                        child:const  Text(
+                          'Add 2 Point',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.orange,
+                          minimumSize: const Size(150, 50),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            teamAPoints += 3;
+                          });
+                        },
+                        child: const Text(
+                          'Add 3 Point ',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 500,
+                  child: VerticalDivider(
+                    indent: 50,
+                    endIndent: 50,
+                    color: Colors.grey,
+                    thickness: 1,
+                  ),
+                ),
+                SizedBox(
+                  height: 500,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const Text(
+                        'Team B',
+                        style: TextStyle(
+                          fontSize: 32,
+                        ),
+                      ),
+                      Text(
+                        '$teamBPoints',
+                        style: const TextStyle(
+                          fontSize: 150,
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.all(8),
+                          primary: Colors.orange,
+                          minimumSize: Size(150, 50),
+                        ),
+                        onPressed: () {
+                          setState(() {});
+                          teamBPoints++;
+                        },
+                        child: const Text(
+                          'Add 1 Point ',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.orange,
+                          minimumSize: Size(150, 50),
+                        ),
+                        onPressed: () {
+                          setState(() {});
+                          teamBPoints += 2;
+                        },
+                        child: const  Text(
+                          'Add 2 Point ',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.orange,
+                          minimumSize:const  Size(150, 50),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            teamBPoints += 3;
+                          });
+                        },
+                        child:const  Text(
+                          'Add 3 Point ',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding:const  EdgeInsets.all(8),
+                primary: Colors.orange,
+                minimumSize:const  Size(150, 50),
+              ),
+              onPressed: () {
+                setState(() {
+                  teamAPoints = 0;
+                  teamBPoints = 0;
+                });
+              },
+              child:const  Text(
+                'Reset',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
-      child: BlocConsumer<AppCubit, AppState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: lightTheme,
-            darkTheme: darkTheme,
-            themeMode: AppCubit.instance(context).isDark
-                ? ThemeMode.dark
-                : ThemeMode.light,
-            home:  CacheHelper.getUserId().isNotEmpty ? SocialLayout():SocialLoginScreen()/*isOnBoarding ? isLogin ? const ShopLayoutView():ShopLoginScreen():const OnBoardingView ()*/,
-          );
-        },
       ),
     );
   }
-
-
 }
+
