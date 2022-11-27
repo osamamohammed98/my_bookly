@@ -4,7 +4,11 @@
 # This file should be version controlled.
 
 version:
+<<<<<<< HEAD
   revision: e99c9c7cd9f6c0b2f8ae6e3ebfd585239f5568f4
+=======
+  revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+>>>>>>> tharwt/main
   channel: stable
 
 project_type: app
@@ -13,6 +17,7 @@ project_type: app
 migration:
   platforms:
     - platform: root
+<<<<<<< HEAD
       create_revision: e99c9c7cd9f6c0b2f8ae6e3ebfd585239f5568f4
       base_revision: e99c9c7cd9f6c0b2f8ae6e3ebfd585239f5568f4
     - platform: android
@@ -33,6 +38,28 @@ migration:
     - platform: windows
       create_revision: e99c9c7cd9f6c0b2f8ae6e3ebfd585239f5568f4
       base_revision: e99c9c7cd9f6c0b2f8ae6e3ebfd585239f5568f4
+=======
+      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+    - platform: android
+      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+    - platform: ios
+      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+    - platform: linux
+      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+    - platform: macos
+      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+    - platform: web
+      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+    - platform: windows
+      create_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+      base_revision: f1875d570e39de09040c8f79aa13cc56baab8db1
+>>>>>>> tharwt/main
 
   # User provided section
 

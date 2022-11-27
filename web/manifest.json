@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "bloc_basic",
     "short_name": "bloc_basic",
+=======
+    "name": "bookly",
+    "short_name": "bookly",
+>>>>>>> tharwt/main
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
