@@ -46,4 +46,10 @@ class LoginCubit extends Cubit<LoginState> {
     UserCredential user = await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email!, password: password!);
   }
+
+  @override
+  void onChange(Change<LoginState> change) {
+    // TODO: implement onChange
+    super.onChange(change);
+  }
 }

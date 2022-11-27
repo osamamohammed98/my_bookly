@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'dart:math';
 
+import 'package:bloc_basic/bloc/auth_bloc.dart';
 import 'package:bloc_basic/cubit/login/login_cubit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -22,15 +23,15 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
-      child: BlocConsumer<LoginCubit, LoginState>(
+      create: (context) => AuthBloc(),
+      child: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           // TODO: implement listener
         },
         builder: (context, state) {
-          var loginCubit = LoginCubit.instance(context);
+          var loginCubit = AuthBloc.instance(context);
           return ModalProgressHUD(
-            inAsyncCall: state is LoginLoadingState,
+            inAsyncCall: state is LoginLoadingStateBloc,
             child: Scaffold(
               backgroundColor: kPrimaryColor,
               body: Padding(
@@ -93,7 +94,11 @@ class LoginPage extends StatelessWidget {
                       ),
                       CustomButon(
                         onTap: () async =>
-                            loginCubit.loginUser(formKey, context),
+                            loginCubit.add(LoginEvent(
+                            loginCubit.email!,
+                            loginCubit.password!,
+                            formKey,
+                            context)),
                         text: 'LOGIN',
                       ),
                       const SizedBox(
