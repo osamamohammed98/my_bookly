@@ -22,54 +22,27 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
-<<<<<<< HEAD
 // START: FlutterFire Configuration
 apply plugin: 'com.google.gms.google-services'
 // END: FlutterFire Configuration
-=======
->>>>>>> tharwt/main
-apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-<<<<<<< HEAD
     compileSdkVersion 33
-=======
-    compileSdkVersion flutter.compileSdkVersion
->>>>>>> tharwt/main
     ndkVersion flutter.ndkVersion
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-<<<<<<< HEAD
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.bloc.basic.bloc_basic"
-        // You can update the following values to match your application needs. 
+        // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         minSdkVersion 21
         targetSdkVersion 33
         multiDexEnabled true
-=======
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
-
-    defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.bloc_basic"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
->>>>>>> tharwt/main
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -78,6 +51,7 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
+
             signingConfig signingConfigs.debug
         }
     }
@@ -86,10 +60,8 @@ android {
 flutter {
     source '../..'
 }
-<<<<<<< HEAD
-=======
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:multidex:1.0.3'
+
 }
->>>>>>> tharwt/main

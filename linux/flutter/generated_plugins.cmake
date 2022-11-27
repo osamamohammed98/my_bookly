@@ -3,10 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-<<<<<<< HEAD
   modal_progress_hud_nsn
-=======
->>>>>>> tharwt/main
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
