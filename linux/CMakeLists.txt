@@ -10,10 +10,10 @@ set(BINARY_NAME "bloc_basic")
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
 set(APPLICATION_ID "com.bloc.basic.bloc_basic")
 =======
-set(BINARY_NAME "bookly")
+set(BINARY_NAME "bloc_basic")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "com.example.bookly")
+set(APPLICATION_ID "com.example.bloc_basic")
 >>>>>>> tharwt/main
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent

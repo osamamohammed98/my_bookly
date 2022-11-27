@@ -8,7 +8,7 @@
 <<<<<<< HEAD
 	<string>Bloc Basic</string>
 =======
-	<string>Bookly</string>
+	<string>bloc_basic</string>
 >>>>>>> tharwt/main
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -20,7 +20,7 @@
 <<<<<<< HEAD
 	<string>bloc_basic</string>
 =======
-	<string>bookly</string>
+	<string>bloc_basic</string>
 >>>>>>> tharwt/main
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>

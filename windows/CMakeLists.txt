@@ -7,11 +7,11 @@ project(bloc_basic LANGUAGES CXX)
 # the on-disk name of your application.
 set(BINARY_NAME "bloc_basic")
 =======
-project(bookly LANGUAGES CXX)
+project(bloc_basic LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "bookly")
+set(BINARY_NAME "bloc_basic")
 >>>>>>> tharwt/main
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent

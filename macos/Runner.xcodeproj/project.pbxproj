@@ -61,7 +61,7 @@
 <<<<<<< HEAD
 		33CC10ED2044A3C60003C045 /* bloc_basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bloc_basic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 =======
-		33CC10ED2044A3C60003C045 /* bookly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bookly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33CC10ED2044A3C60003C045 /* bloc_basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bloc_basic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 >>>>>>> tharwt/main
 		33CC10F02044A3C60003C045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33CC10F22044A3C60003C045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Runner/Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 <<<<<<< HEAD
 				33CC10ED2044A3C60003C045 /* bloc_basic.app */,
 =======
-				33CC10ED2044A3C60003C045 /* bookly.app */,
+				33CC10ED2044A3C60003C045 /* bloc_basic.app */,
 >>>>>>> tharwt/main
 			);
 			name = Products;
@@ -195,7 +195,7 @@
 <<<<<<< HEAD
 			productReference = 33CC10ED2044A3C60003C045 /* bloc_basic.app */;
 =======
-			productReference = 33CC10ED2044A3C60003C045 /* bookly.app */;
+			productReference = 33CC10ED2044A3C60003C045 /* bloc_basic.app */;
 >>>>>>> tharwt/main
 			productType = "com.apple.product-type.application";
 		};

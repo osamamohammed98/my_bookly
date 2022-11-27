@@ -47,11 +47,11 @@ static void my_application_activate(GApplication* application) {
   } else {
     gtk_window_set_title(window, "bloc_basic");
 =======
-    gtk_header_bar_set_title(header_bar, "bookly");
+    gtk_header_bar_set_title(header_bar, "bloc_basic");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
   } else {
-    gtk_window_set_title(window, "bookly");
+    gtk_window_set_title(window, "bloc_basic");
 >>>>>>> tharwt/main
   }
 

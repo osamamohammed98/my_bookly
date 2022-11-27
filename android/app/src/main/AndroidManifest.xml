@@ -15,9 +15,9 @@
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
 =======
-    package="com.example.bookly">
+    package="com.example.bloc_basic">
    <application
-        android:label="bookly"
+        android:label="bloc_basic"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

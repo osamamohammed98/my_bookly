@@ -14,10 +14,10 @@ PRODUCT_BUNDLE_IDENTIFIER = com.bloc.basic.blocBasic
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2022 com.bloc.basic. All rights reserved.
 =======
-PRODUCT_NAME = bookly
+PRODUCT_NAME = bloc_basic
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.bookly
+PRODUCT_BUNDLE_IDENTIFIER = com.example.bloc_basic
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.

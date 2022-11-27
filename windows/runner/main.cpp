@@ -30,7 +30,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
 <<<<<<< HEAD
   if (!window.CreateAndShow(L"bloc_basic", origin, size)) {
 =======
-  if (!window.CreateAndShow(L"bookly", origin, size)) {
+  if (!window.CreateAndShow(L"bloc_basic", origin, size)) {
 >>>>>>> tharwt/main
     return EXIT_FAILURE;
   }

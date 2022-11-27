@@ -411,7 +411,7 @@
 <<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.bloc.basic.blocBasic;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.bookly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.bloc_basic;
 >>>>>>> tharwt/main
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -555,7 +555,7 @@
 <<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.bloc.basic.blocBasic;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.bookly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.bloc_basic;
 >>>>>>> tharwt/main
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -585,7 +585,7 @@
 <<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.bloc.basic.blocBasic;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.bookly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.bloc_basic;
 >>>>>>> tharwt/main
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";

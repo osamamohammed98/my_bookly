@@ -3,8 +3,8 @@
     "name": "bloc_basic",
     "short_name": "bloc_basic",
 =======
-    "name": "bookly",
-    "short_name": "bookly",
+    "name": "bloc_basic",
+    "short_name": "bloc_basic",
 >>>>>>> tharwt/main
     "start_url": ".",
     "display": "standalone",

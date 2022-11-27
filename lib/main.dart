@@ -1,4 +1,4 @@
-import 'package:bookly/constants.dart';
+import 'package:bloc_basic/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,11 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'Features/Splash/presentation/views/splash_view.dart';
 
 void main() {
-  runApp(const Bookly());
+  runApp(const bloc_basic());
 }
 
-class Bookly extends StatelessWidget {
-  const Bookly({Key? key}) : super(key: key);
+class bloc_basic extends StatelessWidget {
+  const bloc_basic({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
