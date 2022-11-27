@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,16 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDt5Ymf-059WeM2wpXaWacwK_LTDAlIbpA',
+    appId: '1:433573353285:web:aaacc79ee0e8848f7a902c',
+    messagingSenderId: '433573353285',
+    projectId: 'e-commerce-app-19d36',
+    authDomain: 'e-commerce-app-19d36.firebaseapp.com',
+    storageBucket: 'e-commerce-app-19d36.appspot.com',
+    measurementId: 'G-GTG83R90FW',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDlzMmHB_Hdowyrf5J9PjTdJ7B89wrteig',
     appId: '1:433573353285:android:a79fa5a7fedc6aba7a902c',
@@ -58,6 +62,17 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDBL0yJ3qZh-9O6v_yXKQGUacp2dGKJ_rY',
+    appId: '1:433573353285:ios:2479217390063ebc7a902c',
+    messagingSenderId: '433573353285',
+    projectId: 'e-commerce-app-19d36',
+    storageBucket: 'e-commerce-app-19d36.appspot.com',
+    androidClientId: '433573353285-4qu1kf4ph9bh6l64nlj0bedc9mppjgig.apps.googleusercontent.com',
+    iosClientId: '433573353285-673kcpe6csnnegbaci100dmspugqcan9.apps.googleusercontent.com',
+    iosBundleId: 'com.bloc.basic.blocBasic',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyDBL0yJ3qZh-9O6v_yXKQGUacp2dGKJ_rY',
     appId: '1:433573353285:ios:2479217390063ebc7a902c',
     messagingSenderId: '433573353285',
